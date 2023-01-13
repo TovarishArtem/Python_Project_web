@@ -55,13 +55,14 @@ class FormCreate(View):
     def post(self, request):
                 day = []
                 day.append(request.POST['digit'])
-
+                print(day)
                 try:
 
                     vacancies = requests.get(
-                        f'https://api.hh.ru/vacancies?specialization=1&date_from=2022-12-01T00:00:00&date_to=2022-12-{day[0]}T23:59:59&&text=Андроид+разработчик&only_with_salary=true&order_by=publication_time&per_page=10').json()['items']
+                        f'https://api.hh.ru/vacancies?specialization=1&date_from=2022-12-{day[0]}T00:00:00&date_to=2022-12-{day[0]}T23:59:59&&text=Андроид+разработчик&only_with_salary=true&order_by=publication_time&per_page=10').json()['items']
                 except:
                     return render(request, 'main/form_erorr.html')
+                print(len(vacancies))
                 if len(vacancies) > 0:
                     jobs_list = []
                     for vac in vacancies:
@@ -84,7 +85,7 @@ class FormCreate(View):
                     context = {"data": list_vacancies}
                     return render(request, 'main/last_vacancies.html',  context=context)
 
-                return render(request, 'main/last_vacancies.html')
+                return render(request, 'main/form_erorr.html')
 
 
 def admin(request):
@@ -95,5 +96,5 @@ def demand(request):
     grafics = Grafics.objects.all()[:1]
     return render(request, 'main/demand.html', {'grafics': grafics})
 def geo(request):
-    grafics = Grafics.objects.all()[:1]
+    grafics = Grafics.objects.all()[1:]
     return render(request, 'main/geo.html', {'grafics': grafics})
