@@ -39,47 +39,59 @@
         </div >
 
 
+        {% for p in data %}
+            <div id="square4">
+                <div class="title_square">
+                    {{ p.name}}
+                </div>
+                 <hr>
+                <div class="square4-text">
+                   <strong style="font-size: 25px;">Описание:</strong>
+                    {{p.description | safe}}
+                    <br>
+                    <strong style="font-size: 25px;">Навыки:</strong>
+                   <br>
 
-            <form  method="POST" >
-
-           {% for field in form %}
-            {% csrf_token %}
-            <div style="font-size: 30px; ">
-                <div id="squareFORM">
-                <div class="title_form">
-                    {{title}} {{form.digit}}
-                     <button style="position: center" type="submit">Отправить</button>
+                    {{p.key_skills}}
+                    <br>
+                    <strong style="font-size: 25px;">Компания:</strong>
+                   <br>
+                    {{ p.employer}}
+                    <br>
+                    <strong style="font-size: 25px;">Зарплата:</strong>
+                   <br>
+                    {{ p.salary}}
+                    <br>
+                    <strong style="font-size: 25px;">Город:</strong>
+                   <br>
+                    {{ p.area}}
+                    <br>
+                    <strong style="font-size: 25px;">Дата публикации:</strong>
+                   <br>
+                    {{ p.published_at}}
                 </div>
 
-                </div>
-
-
-
-
-
-            {% endfor %}
             </div>
+                {% endfor %}
 
 
-
-        </form>
-
-        </button>
-
-
+            <br>
 
 
 
 
- </div>
-        <footer id="square-footer" style="margin-left: 550px" >
+
+
+
+
+        <footer id="square-footer" >
                 <div class="copyright">
                     © Чекмарев Артем Алксеевич, РИ-210915, 2023 •
                 </div>
 
 
     </footer>
-
+    </div>
 
 
 

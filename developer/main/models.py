@@ -22,7 +22,7 @@ def user_directory_path(instance, filename):
 
 class Grafics(models.Model):
     title = models.CharField('Название', max_length=50)
-    grafic = models.ImageField('График', blank=True,  upload_to='images/')
+    grafic = models.FileField('График', blank=True,  upload_to='images/')
     bd = models.Field
 
     def __str__(self):
