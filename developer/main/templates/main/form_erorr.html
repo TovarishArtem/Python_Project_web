@@ -39,59 +39,31 @@
         </div >
 
 
-        {% for p in data %}
-            <div id="square4">
-                <div class="title_square">
-                    {{ p.name}}
-                </div>
-                 <hr>
-                <div class="square4-text">
-                   <strong style="font-size: 25px;">Описание:</strong>
-                    {{p.description | safe}}
-                    <br>
-                    <strong style="font-size: 25px;">Навыки:</strong>
-                   <br>
+            <div style="font-size: 30px; ">
+                <div id="squareFORM">
 
-                    {{p.key_skills}}
-                    <br>
-                    <strong style="font-size: 25px;">Компания:</strong>
-                   <br>
-                    {{ p.employer}}
-                    <br>
-                    <strong style="font-size: 25px;">Зарплата:</strong>
-                   <br>
-                    {{ p.salary}}
-                    <br>
-                    <strong style="font-size: 25px;">Город:</strong>
-                   <br>
-                    {{ p.area}}
-                    <br>
-                    <strong style="font-size: 25px;">Дата публикации:</strong>
-                   <br>
-                    {{ p.published_at}}
-                </div>
+                    <div class="title_form_error" style="margin-left: 230px; font-size: 40px">
+                     Нет вакансий!
+                    </div>
+                    <div class="text_form" style="margin-left: 200px;">
+                     (поробуйте выбрать другую дату)
+                    </div>
+
+                 </div>
 
             </div>
-                {% endfor %}
-
-
-            <br>
 
 
 
-
-
-
-
-
-        <footer id="square-footer" >
+ </div>
+        <footer id="square-footer" style="margin-left: 550px" >
                 <div class="copyright">
                     © Чекмарев Артем Алксеевич, РИ-210915, 2023 •
                 </div>
 
 
     </footer>
-    </div>
+
 
 
 
@@ -115,7 +87,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link_text-white" aria-current="page">
+            <a href="{% url 'demand' %}" class="nav-link_text-white" aria-current="page">
               <svg class="bi pe-none me-2" width="16" height="150"><use xlink:href="#home"></use></svg>
               Востребованность
             </a>

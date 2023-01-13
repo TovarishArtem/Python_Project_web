@@ -3,10 +3,22 @@ body {
      background-size: 1920px 1080px;
      background-position: center;
      background-attachment: fixed;
-    
 
-    
+
+
    }
+
+.hr-shelf {
+	margin: -30px auto 10px;
+	padding: 0;
+	height: 50px;
+	border: none;
+	border-bottom: 3px solid #1f1209;
+	box-shadow: 0 20px 20px -20px #333;
+
+}
+
+
 
 * {
     margin: 0;
@@ -16,11 +28,11 @@ body {
 
 .nav-item {
     display: block;
-    
+
     --bs-text-opacity: 1;
     font-size: 20px;
     font-family: 'Kodchasan', sans-serif;
-  
+
 }
 
 
@@ -45,7 +57,6 @@ h1, h2, h3, h4, h5, h6{
 
 .container{
     width: 1920px;
-    
     margin: 0 auto;
 }
 
@@ -55,7 +66,7 @@ h1, h2, h3, h4, h5, h6{
     margin-left: 300px;
     width: 1620px;
     height: 100vh
-    
+
 
 }
 
@@ -67,7 +78,7 @@ h1, h2, h3, h4, h5, h6{
     text-align: center;
     font-weight: 700;
     color: aliceblue;
-    
+
 
 }
 
@@ -77,24 +88,24 @@ h1, h2, h3, h4, h5, h6{
     display: block;
     align-content: center;
         margin-left: 105px;
-    width: 1100px; 
+    width: 1100px;
 
     height: 350px;
     background: #fff;
-    position: relative;    
+    position: relative;
     opacity: 0.9;
     border-radius: 10px;
     border: 5px #cfc solid;
-   
+
 }
 
 #square:before {
 
     content: "";
-    position: absolute; 
-    top: 100%; 
-    bottom: 100%; 
-    right: -50%; 
+    position: absolute;
+    top: 100%;
+    bottom: 100%;
+    right: -50%;
     left: -50%;
     background: inherit;
 }
@@ -109,7 +120,7 @@ h1, h2, h3, h4, h5, h6{
     top: 40%;
     left: 200px;
     z-index: 2;
-    
+
 }
 .square-text{
     padding-bottom: 20px;
@@ -118,11 +129,11 @@ h1, h2, h3, h4, h5, h6{
     margin-left: 30px;
     font-size: 18px;
     font-family: 'Prosto One', cursive;
-    
+
 }
 /* 2 block */
 #square1 {
-    max-width: 100%;    
+    max-width: 100%;
     margin-left: 105px;
     width: 1100px;
     margin-top: 15%;
@@ -130,7 +141,7 @@ h1, h2, h3, h4, h5, h6{
     background: #fff;
         top: 200px;
         left: 0;
-
+        right: 10%;
         opacity: 0.9;
         border-radius: 10px;
     border: 5px #cfc solid;
@@ -140,10 +151,10 @@ h1, h2, h3, h4, h5, h6{
 #square1:before {
 
     content: "";
-    position: absolute; 
-    top: 100%; 
-    bottom: 100%; 
-    right: -50%; 
+    position: absolute;
+    top: 100%;
+    bottom: 100%;
+    right: -50%;
     left: -50%;
     background: inherit;
 }
@@ -165,16 +176,16 @@ h1, h2, h3, h4, h5, h6{
 /* 3 block */
 
 .contianer_square2_img{
-   
+
     display: flex;
     justify-content: space-between;
 }
 
 .items_square2_img{
    margin-left: 10px;
-   
-   
-   
+
+
+
 }
 
 .header h1 {
@@ -185,7 +196,7 @@ h1, h2, h3, h4, h5, h6{
   border-right: 4px solid #000; /*This will be the blinking cursor*/
 }
 .square2 {
-    
+
    margin-top: 15%;
     width: 680px;
     margin-right: 260px;
@@ -194,18 +205,18 @@ h1, h2, h3, h4, h5, h6{
     background: #fff;
     top: 200px;
     left: 0;
-
+    right: 10%;
     opacity: 0.8;
     border-radius: 10px;
     border: 5px #cfc solid;
 }
 .square2:before {
-    
+
     content: "";
-    position: absolute; 
-    top: 100%; 
-    bottom: 100%; 
-    right: -50%; 
+    position: absolute;
+    top: 100%;
+    bottom: 100%;
+    right: -50%;
     left: -50%;
     background: inherit;
 }
@@ -221,7 +232,7 @@ h1, h2, h3, h4, h5, h6{
     font-size: 30px;
     font-weight: 500;
     color: #000;
-    font-family: 'Prosto One', cursive;  
+    font-family: 'Prosto One', cursive;
 
 }
 
@@ -236,7 +247,7 @@ h1, h2, h3, h4, h5, h6{
 #oval{
     margin-left: 27%;
     margin-top: 100px;
-    
+
     width: 680px;
     margin-right: 260px;
     max-width: 100%;
@@ -244,18 +255,18 @@ h1, h2, h3, h4, h5, h6{
     background: #fff;
     top: 200px;
     left: 0;
-
+    right: 10%;
     opacity: 0.9;
     border-radius: 40px;
     border: 5px #cfc solid;
 }
 .oval:before {
-    
+
     content: "";
-    position: absolute; 
-    top: 100%; 
-    bottom: 100%; 
-    right: -50%; 
+    position: absolute;
+    top: 100%;
+    bottom: 100%;
+    right: -50%;
     left: -50%;
     background: inherit;
 }
@@ -265,7 +276,7 @@ h1, h2, h3, h4, h5, h6{
   font-weight: 700;
   color: #000;
   font-family: 'Prosto One', cursive;
-
+    top: 5%;
     padding: 27px;
 }
 
@@ -275,9 +286,9 @@ h1, h2, h3, h4, h5, h6{
     margin-left: 200px
 }
 #oval_plus{
-   
+
     margin-top: 80px;
-    
+
     width: 470px;
     margin-right: 1px;
     max-width: 100%;
@@ -285,15 +296,15 @@ h1, h2, h3, h4, h5, h6{
     background: #fff;
     top: 200px;
     left: 0;
-
+    right: 10%;
     opacity: 0.9;
     border-radius: 40px;
     border: 5px #cfc solid;
-    
+
 }
 .items_oval{
     width: 50%;
-    
+
 }
 
 .title_text{
@@ -302,12 +313,12 @@ h1, h2, h3, h4, h5, h6{
   color: #000;
   font-family: 'Prosto One', cursive;
     display: flex;
-   
+
     padding: 10px 30px;
 }
 .items_title_text{
    width: 13%;
-    
+
 }
 .ul_text{
     padding: 20px 30px;
@@ -326,26 +337,26 @@ h1, h2, h3, h4, h5, h6{
     background: #fff;
     top: 200px;
     left: 0;
-   
+
     opacity: 0.9;
     border-radius: 40px;
     border: 5px #cfc solid;
-    
+
 }
 .square3-title{
-    
+
    margin-left: 100px;
     padding: 20px 60px;
     font-size: 30px;
     font-weight: 700;
     color: #000;
     font-family: 'Prosto One', cursive;
-    
+
 }
 
 .square3-text{
     padding: 5px 60px;
-    
+
     font-size: 20px;
     color: #000;
     font-family: 'Prosto One', cursive;
@@ -355,27 +366,117 @@ h1, h2, h3, h4, h5, h6{
     width: 700px;
     height: 400px;
     padding-top: 20px;
-    
+
     margin-left: 240px;
 }
 
-#square-footer{
-    
+
+
+/* 6 block */
+
+
+#square4 {
     margin-top: 100px;
-   
-    width: 1700px;
-    
+    margin-left: 200px;
+    width: 1200px;
+
     max-width: 100%;
-    max-height: 270px;
-    height: 50px;
+
+    height: 5600px;
     background: #fff;
     top: 200px;
     left: 0;
+    right: 10%;
+    opacity: 0.9;
+    border-radius: 40px;
+    border: 5px #cfc solid;
+}
+.title1-square{
+    font-family: 'Prosto One', cursive;
+    font-size: 40px;
+    padding: 30px 50px;
+}
+.title2-square{
+     font-family: 'Prosto One', cursive;
+    font-size: 20px;
+    padding-left: 54px;
+}
 
+.square4-text{
+    text-align: justify;
+    padding-left: 20px;
+    font-family: 'Prosto One', cursive;
+}
+
+.ol-square{
+    padding-left: 70px;
+}
+.title-online{
+    font-family: 'Prosto One', cursive;
+    font-size: 30px;
+    padding: 30px 50px;
+}
+
+.text-online{
+    text-align: justify;
+    padding: 5px 50px 40px 50px;
+    font-size: 20px;
+}
+
+.link{
+
+    margin-left: 350px;
+    display: inline;
+    padding: 10px;
+    border-radius: 5px;
+    border: 4px solid #000;
+    text-decoration: none;
+    background-color: #212529;
+    transition: background 0.1s linear, color 0.1s linear;
+}
+.color_link{
+    color: aliceblue;
+    font-size: 30px;
+}
+
+.link:hover{
+
+    background-color: #0D6EFD
+}
+
+.text-univers{
+    font-size: 20px;
+}
+.title-online{
+    font-size: 30px;
+
+}
+
+.self-learn-text{
+     font-size: 20px;
+
+}
+
+
+
+
+
+
+#square-footer{
+    margin-left: 200px;
+   margin-top: 30px;
+    width: 1200px;
+    max-width: 100%;
+    max-height: 270px;
+    height: 70px;
+    background: #fff;
+    top: 0;
+    left: 0;
     opacity: 0.9;
 
-  
-    border: 5px #cfc solid;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border: 10px #cfc solid;
 }
 
 .copyright{
@@ -383,7 +484,7 @@ h1, h2, h3, h4, h5, h6{
     padding: 15px;
     text-align: center;
     font-family: 'Prosto One', cursive;
-    
+
 }
 
 

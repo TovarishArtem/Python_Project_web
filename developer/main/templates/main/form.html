@@ -39,59 +39,47 @@
         </div >
 
 
-        {% for p in data %}
-            <div id="square4">
-                <div class="title_square">
-                    {{ p.name}}
-                </div>
-                 <hr>
-                <div class="square4-text">
-                   <strong style="font-size: 25px;">Описание:</strong>
-                    {{p.description | safe}}
-                    <br>
-                    <strong style="font-size: 25px;">Навыки:</strong>
-                   <br>
 
-                    {{p.key_skills}}
-                    <br>
-                    <strong style="font-size: 25px;">Компания:</strong>
-                   <br>
-                    {{ p.employer}}
-                    <br>
-                    <strong style="font-size: 25px;">Зарплата:</strong>
-                   <br>
-                    {{ p.salary}}
-                    <br>
-                    <strong style="font-size: 25px;">Город:</strong>
-                   <br>
-                    {{ p.area}}
-                    <br>
-                    <strong style="font-size: 25px;">Дата публикации:</strong>
-                   <br>
-                    {{ p.published_at}}
+            <form  method="POST" >
+
+           {% for field in form %}
+            {% csrf_token %}
+            <div style="font-size: 30px; ">
+                <div id="squareFORM">
+                <div class="title_form">
+                    {{title}} {{form.digit}}
+                     <button style="position: center" type="submit">Отправить</button>
                 </div>
 
+                </div>
+
+
+
+
+
+            {% endfor %}
             </div>
-                {% endfor %}
-
-
-            <br>
 
 
 
+        </form>
+
+        </button>
 
 
 
 
 
-        <footer id="square-footer" >
+
+ </div>
+        <footer id="square-footer" style="margin-left: 550px" >
                 <div class="copyright">
                     © Чекмарев Артем Алксеевич, РИ-210915, 2023 •
                 </div>
 
 
     </footer>
-    </div>
+
 
 
 
@@ -115,7 +103,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link_text-white" aria-current="page">
+            <a href="{% url 'demand' %}" class="nav-link_text-white" aria-current="page">
               <svg class="bi pe-none me-2" width="16" height="150"><use xlink:href="#home"></use></svg>
               Востребованность
             </a>
