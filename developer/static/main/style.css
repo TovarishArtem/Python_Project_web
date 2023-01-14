@@ -1,17 +1,13 @@
 body {
      background-image: url('https://img.youscreen.ru/wall/14977845314718/14977845314718_1920x1200.jpg');
-     background-size: 1920px 1080px;
+     background-size: 1620px 1080px;
      background-position: center;
      background-attachment: fixed;
-     max-width: 100%;
-
-
-   }
-.main-text{
-    overflow-x: hidden;
+     width: 1200px;
     overflow-y: scroll;
     overflow-x: hidden;
-}
+   }
+
 
 
 .hr-shelf {
@@ -69,7 +65,7 @@ h1, h2, h3, h4, h5, h6{
 /* 1 block */
 
 .main-text{
-    margin-left: 300px;
+
     width: 1620px;
     height: 100vh
 
