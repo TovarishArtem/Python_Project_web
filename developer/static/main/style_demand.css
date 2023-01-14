@@ -5,7 +5,6 @@ body {
      background-attachment: fixed;
 
 
-
    }
 
 .hr-shelf {
@@ -122,6 +121,7 @@ h1, h2, h3, h4, h5, h6{
 
 
 .square4-text{
+
     padding-bottom: 30px;
     margin-left: 40px;
     padding-top: 20px;
@@ -135,7 +135,7 @@ h1, h2, h3, h4, h5, h6{
 
 #square-footer{
     margin-left: 400px;
-    margin-top: 360px;
+    margin-top: 320px;
     width: 1200px;
     margin-left: 200px;
 

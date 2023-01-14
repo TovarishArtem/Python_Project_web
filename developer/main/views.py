@@ -18,12 +18,17 @@ from jinja2 import Environment, FileSystemLoader
 import pathlib
 import pdfkit
 
+
 def index(request):
     return render(request, 'main/Index.html')
 
+
 def error(request):
     return render(request, 'main/form_erorr.html')
+
+
 class FormCreate(View):
+
     def get(self, request):
         if request.method == 'POST':
             form = AddPostForm(request.POST)
@@ -35,10 +40,8 @@ class FormCreate(View):
         return render(request, 'main/form.html', {'form' : form})
 
     my_list = list()
+
     def post(self, request):
-        print()
-        print(dir(request))
-        print()
 
         return request.POST['digit']
 
@@ -52,6 +55,7 @@ class FormCreate(View):
         else:
             form = AddPostForm()
         return render(request, 'main/form.html', {'form' : form, 'title' : 'Выберите число декабря'})
+
     def post(self, request):
                 day = []
                 day.append(request.POST['digit'])
@@ -63,7 +67,7 @@ class FormCreate(View):
                         f'https://api.hh.ru/vacancies?specialization=1&date_from=2022-12-{day1}T00:00:00&date_to=2022-12-{day1}T23:59:59&text=NAME:(Андроид+разработчик+OR+android+OR+android+developer)&only_with_salary=true&order_by=publication_time&per_page=10').json()['items']
                 except:
                     return render(request, 'main/form_erorr.html')
-                print(len(vacancies))
+
                 if len(vacancies) > 0:
                     jobs_list = []
                     for vac in vacancies:
@@ -82,7 +86,7 @@ class FormCreate(View):
                             'alternate_url': vac['alternate_url'],
 
                         }
-                        print(vac['alternate_url'])
+
                         list_vacancies.append(vacancies_info)
                     context = {"data": list_vacancies}
                     return render(request, 'main/last_vacancies.html',  context=context)
@@ -97,6 +101,8 @@ def admin(request):
 def demand(request):
     grafics = Grafics.objects.all()[:1]
     return render(request, 'main/demand.html', {'grafics': grafics})
+
+
 def geo(request):
     grafics = Grafics.objects.all()[1:]
     return render(request, 'main/geo.html', {'grafics': grafics})
