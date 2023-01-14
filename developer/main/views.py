@@ -56,10 +56,11 @@ class FormCreate(View):
                 day = []
                 day.append(request.POST['digit'])
                 print(day)
+                day1 = day[0]
                 try:
 
                     vacancies = requests.get(
-                        f'https://api.hh.ru/vacancies?specialization=1&date_from=2022-12-{day[0]}T00:00:00&date_to=2022-12-{day[0]}T23:59:59&&text=Андроид+разработчик&only_with_salary=true&order_by=publication_time&per_page=10').json()['items']
+                        f'https://api.hh.ru/vacancies?specialization=1&date_from=2022-12-{day1}T00:00:00&date_to=2022-12-{day1}T23:59:59&text=NAME:(Андроид+разработчик+OR+android+OR+android+developer)&only_with_salary=true&order_by=publication_time&per_page=10').json()['items']
                 except:
                     return render(request, 'main/form_erorr.html')
                 print(len(vacancies))
@@ -78,9 +79,10 @@ class FormCreate(View):
                             'salary': f"{int((int(vac['salary']['from'] or 0) + int(vac['salary']['to'] or 0)) /2):,} {vac['salary']['currency']}",
                             'area': vac['area']['name'],
                             'published_at': datetime.datetime.strptime(vac['published_at'].replace('T', ' ')[:18], '%Y-%m-%d %H:%M:%S'),
-                            'id': vac['id'],
-                        }
+                            'alternate_url': vac['alternate_url'],
 
+                        }
+                        print(vac['alternate_url'])
                         list_vacancies.append(vacancies_info)
                     context = {"data": list_vacancies}
                     return render(request, 'main/last_vacancies.html',  context=context)
