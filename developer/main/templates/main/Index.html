@@ -1,6 +1,6 @@
 {%extends 'main/base.html'%}
 {% load static %}
-
+{% block css %} "{% static 'main/style.css' %}" {%endblock%}
 {%block status1%}nav-link active{%endblock%}
 {%block status2%}nav-link_text-white{%endblock%}
 {%block status3%}nav-link_text-white{%endblock%}
@@ -10,348 +10,289 @@
 {% block title %}Главная страница {%endblock%}
 
 
-        {%block content%}
+{%block content%}
+{% for el in block1 %}
+<div class="container">
+    <div id="square">
+        <div class="square-img">
+            <img src="https://img-blog.csdnimg.cn/20190411234502517.png?imageView2/5/w/120/h/120" alt="">
+        </div>
+        <div class="square-text">
+            {{ el.text_definition | safe}}
+        </div>
+    </div>
 
-        <div class="container">
-
-            <div id="square">
-                <div class="square-img">
-                    <img src="https://img-blog.csdnimg.cn/20190411234502517.png?imageView2/5/w/120/h/120" alt=""></div>
-                <div class="square-text">
-                    Андроид разработчик — это IT-специалист, который создает, поддерживает и совершенствует программное обеспечение для мобильных устройств, использующих популярную ОС Android. Вместе с этим он задействован в процессах поддержки, улучшения и обновления разрабатываемых продуктов.
-                </div>
+    <div id="square1">
+        <div class="square1-title">
+            Что делает Android-разработчик?
+        </div>
+        <div class="square1-text">
+               {{ el.text_what_doing | safe }}
+        </div>
+    </div>
+</div>
+    <br>
+    <div class="contianer_square2_img">
+        <div class="items_square2_img">
+            <div class="img_frame_square2">
+                <img src="https://professii-online.ru/wp-content/uploads/obuchenie-professii-android-developer.jpg" style="border-radius: 5px; border: 5px #cfc solid; box-shadow: 0 0 10px #fff", width="500px"; height="300px";>
             </div>
-
-            <div id="square1">
-                <div class="square1-title">
-                Что делает Android-разработчик?
+        </div>
+        <div class="items_square2_img">
+            <div class="square2" style="border-radius: 5px; border: 5px #cfc solid; box-shadow: 0 0 10px #fff">
+                <div class="title-square2">Инструменты Android-разработчика
                 </div>
-                <div class="square1-text">
-                <p>Android Developer (разработчик на «Андроиде», андроид девелопер) создает мобильные приложения на операционной системе Android. Андроид-программист использует языки Java, Kotlin, C++,  иногда Javascript. В 2019 году Google объявил Kotlin официальным и предпочтительным языком для Android-разработки.</p>
-                    <hr>
-                    Android-разработчик может работать на себя, создавая приложения и продавая подписку на них через Google Play. Разработка не требует больших материальных вложений, но программисту-фрилансеру надо разбираться в маркетинге и дизайне.
-
+                <div class="text-square2">
+                   {{ el.text_tools | safe }}
                 </div>
             </div>
         </div>
-            <br>
-
-            <div class="contianer_square2_img">
-                <div class="items_square2_img">
-                    <div class="img_frame_square2">
-                        <img src="https://professii-online.ru/wp-content/uploads/obuchenie-professii-android-developer.jpg" style="border-radius: 5px; border: 5px #cfc solid; box-shadow: 0 0 10px #fff", width="500px"; height="300px";>
-                    </div>
-
-                </div>
-                <div class="items_square2_img">
-                    <div class="square2">
-                        <div class="title-square2">Инструменты Android-разработчика
-                        </div>
-                        <div class="text-square2">
-                            <strong>Android Studio</strong>
-
-<p>Это программа, которая позволяет писать код на Java и Kotlin, разрабатывать интерфейсы, редактировать макеты, тестировать написанные функции — делать всё, что нужно для разработки приложений на Android.
-Инструмент бесплатный и совместим со всеми операционными системами. Внутрь уже встроен эмулятор Android, который позволяет запускать приложения «как из телефона» прямо с компьютера.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="oval">
-
-                <div class="oval-title">
-                    Плюсы и минусы профессии
-                </div>
-            </div>
-            <div class="container_oval">
-                <div class="items_oval">
-                    <div id="oval_plus">
-                        <div class="text_plus">
-                            <div class="title_text">
-                                <div class="items_title_text">
-                                    <img src="https://fikiwiki.com/uploads/posts/2022-02/1645035901_1-fikiwiki-com-p-kartinki-znachki-1.png" alt="", width="30px"; height="30px";>
-                                </div>
-                                <div class="items_title_text">
-                                    Плюсы
-                                </div>
-                            </div>
-                            <div class="ul_text">
-                            <ul type="disc">
-                                <li>
-                                    Android — одна из самых популярных ОС в мире, так что разработчик для этой системы не останется без работы.
-                                </li>
-                                <br>
-                                <li>
-                                    На Android много разных устройств, можно писать приложения не только для смартфонов, но и для крупных промышленных комплексов.
-                                </li>
-                                <br>
-                                <li>
-                                    Практически каждый бизнес стремится написать своё приложение для смартфона, поэтому Android-разработчики очень востребованы.
-                                </li>
-                                <br>
-                                <li>
-                                    У Android огромное сообщество, в интернете легко найти ответ почти на любой вопрос.
-                                </li>
-                                <br>
-                                <li>
-                                    Для программирования не нужны специальные устройства, хватит простого рабочего ноутбука.
-                                </li>
-                            </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="items_oval">
-                    <div id="oval_plus">
-                        <div class="text_minus">
-                            <div class="title_text">
-                                <div class="items_title_text">
-                                    <img src="https://img2.freepng.ru/20180328/xzq/kisspng-american-red-cross-clip-art-cross-5abb3ed7bfd5b6.3161052215222207597858.jpg" alt="", width="30px"; height="30px";>
-                                </div>
-                                <div class="items_title_text">
-                                    Минусы
-                                </div>
-                            </div>
-                            <div class="ul_text">
-
-                                <ul type="disc">
-                                    <li>
-                                        Огромное разнообразие устройств, адаптировать приложения для которых может быть сложно. Нужно учитывать, что кто-то может открыть приложение со смартфона десятилетней давности, и желательно, чтобы оно работало.
-                                    </li>
-                                    <br>
-                                    <li>
-                                        Нюансы разработки постоянно меняются, библиотеки теряют актуальность, и нужно следить за обновлениями. Работать годами по одной схеме точно не получится.
-                                    </li>
-                                    <br>
-                                    <li>
-                                        Для старта нужно освоить много навыков, а не просто изучить один язык программирования..
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-           <div id="square3">
-            <div class="square3-title">
-               Зарплата Android-разработчика по Москве и России
-               </div>
-               <hr class="black hr" style="color: #000;">
-               <br>
-               <div class="square3-text">
-                    Согласно сайту trud.ru средняя зарплата Андроид-разработчика по Москве на 2019 год следующая:
-                </div>
-               <img class="square3-img" src="https://checkroi.ru/blog/wp-content/uploads/2020/02/Screenshot_1-min-31.jpg" alt="">
-               <hr class="black hr" style="color: #000;">
-               <div class="square3-text">
-                    Согласно сайту hh.ru минимальная зарплата Андроид-разработчику предлагается от 80 тыс. руб. Такой специалист должен иметь минимальный годовой опыт работы. От него требуется:
-                   <br>
-                   <br>
-                   <ul type="disc">
-                       <li>Писать качественный код;</li><li>Поиск ошибок в коде и работать над ними;
-                       </li><li>Оказание помощи в планировании работ;</li>
-                       <li>Коммуницировать с дизайнерами, менеджерами проектов и продуктов, другими разработчиками.</li>
-                   </ul>
-                </div>
+    </div>
+    <div id="oval">
+        <div class="oval-title">
+            Плюсы и минусы профессии
         </div>
-        <div id="square4">
-            <div class="title1-square">
-            Как стать разработчиком приложений для Android
-            </div>
-            <div class="title2-square">
-            Существует 3 способа, чтобы выучиться на Андроид-разработчика:
-            </div>
-            <br>
-            <hr class="hr-shelf">
-            <div class="square4-text">
-            <ol class="ol-square">
-                <li style="padding-top: 10px; padding-right: 100px;">
-                    <div class="text-univers" style="padding-left: 10px;">
-                        <strong>Обучение в ВУЗах.</strong> В высших учебных учреждениях обучаться дорого и долго, а также может быть подача устаревших материалов. Также в России мало институтов, после которых можно сразу пойти работать разработчиком мобильных приложений.
+    </div>
+    <div class="container_oval">
+        <div class="items_oval">
+            <div id="oval_plus">
+                <div class="text_plus">
+                    <div class="title_text">
+                        <div class="items_title_text">
+                            <img src="https://fikiwiki.com/uploads/posts/2022-02/1645035901_1-fikiwiki-com-p-kartinki-znachki-1.png" alt="", width="30px"; height="30px";>
+                        </div>
+                        <div class="items_title_text">
+                            Плюсы
+                        </div>
                     </div>
-
-                </li>
-                <li style="padding-top: 10px; padding-right: 100px;">
-                    <div class="text-univers" style="padding-left: 10px;">
-                        <strong>Онлайн-курсы.</strong> Это наиболее быстрый и недорогой метод обучения. Через 1 год учёбы вы уже сможете уже найти первую работу и начать зарабатывать хорошие деньги.
+                    <div class="ul_text" style=" font-family: 'Prosto One', cursive;">
+                    <ul type="disc">
+                        {{ el.android_plus | safe}}
+                    </ul>
                     </div>
-
-                </li>
-                <li style="padding-top: 10px; padding-right: 100px;">
-                    <div class="text-univers" style="padding-left: 10px;">
-                        <strong>Самообучение.</strong> Чтобы выучиться самостоятельно, потребуется немало мотивации и самодисциплины. На обучение уйдут годы, а с поиском грамотных (хотя и бесплатных) материалов могут возникнуть сложности. Если у вас очень много свободного времени и есть желание стать мобильным разработчиком самому, то обучиться этому вполне реально.
-                    </div>
-                  </li>
-
-                </ol>
-
-                <div class="title-online">
-                    Обучение в ВУЗе
-
                 </div>
-                <div class="text-online">
-                В институтах и университетах есть образовательные программы, благодаря которым можно обучиться мобильной разработке. Студентов обучат программировать на языке Java и Kotlin. Обучение проходит с углублённым изучением теории и с практическими работами.
-                    <br>
-В России существует всего 89 ВУЗов и 81 программа обучения профессии «Разработчик мобильных приложений». Изучить все варианты можно на сайте
-                    <br>
-                    <br>
-                <a class="link" href="https://postupi.online/"><div class="color_link" style="display: inline " >Postupi.online</div></a>
-                </div>
-                <img src="https://professii.su/wp-content/uploads/2022/05/s-chego-nachat-android-razrabotku-min.jpg" style="margin-left: 70px; margin-top: 5px" alt="">
             </div>
-            <br>
-            <hr>
-            <div class="square4-text">
+        </div>
+        <div class="items_oval">
+            <div id="oval_plus">
+                <div class="text_minus">
+                    <div class="title_text">
+                        <div class="items_title_text">
+                            <img src="https://img2.freepng.ru/20180328/xzq/kisspng-american-red-cross-clip-art-cross-5abb3ed7bfd5b6.3161052215222207597858.jpg" alt="", width="30px"; height="30px";>
+                        </div>
+                        <div class="items_title_text">
+                            Минусы
+                        </div>
+                    </div>
+                    <div class="ul_text">
 
-                <div class="title-online">
-                    Онлайн-курсы
-                </div>
-                <div class="text-online">
-                    Самый быстрый способ обучения профессии Андроид-разработчик – это онлайн-курсы. Редакция сайта выбрала лучшие варианты, проанализировав качество подачи материала и помощь в устройстве на работу.
-                        <br>
-                        <br>
+                        <ul type="disc">
+                            {{ el.android_minus | safe}}
 
-                        Онлайн-курс от Скиллбокс «Профессия мобильный разработчик»
-
-                    <img class="skillbox-img" style="margin-left: 160px; margin-top: 20px; padding-top: 40px;" src="https://professii.su/wp-content/uploads/2022/05/professiya-mobilnyj-razrabotchik.webp">
-                    <div class="ol-square" style="font-size: 20px; padding-left: 40px; padding-top: 20px;">
-                        Курс длится 7,5 месяцев, на котором вы с нуля научитесь программировать и создавать приложения для устройств на ОС Андроид и iOS. Что входит в программу курса:
-                        <ul>
-                            <br>
-                            <li>Создание нативных приложений;
-                            </li>
-                            <li>Настройка клиент-серверной части;
-
-                            </li>
-                            <li>Проектирование интерфейсов и анимации;
-
-                            </li>
-                            <li>Тестирование приложений;
-
-                            </li><li>GIT;
-
-                            </li><li>SQL;
-
-                            </li><li>Figma и многое другое.
-
-                            </li>
                         </ul>
-                        <div class="skillbox-text1">Скиллбокс поможет в трудоустройстве, в ином случае будут возвращены деньги за курс.</div>
-                        <br>
-                    <a class="link" href="https://skillbox.ru/course/profession-mobdev/"><div class="color_link" style="display: inline; " >Skillbox</div></a>
                     </div>
                 </div>
             </div>
-
-            <br>
-            <hr>
-            <div class="square4-text">
-
-                <div class="title-online">
-
-
-                    Факультет Android-разработки от GeekBrains
-                <br>
-                <img class="skillbox-img" style="margin-left: 160px; margin-top: 50px;" src="https://professii.su/wp-content/uploads/2022/05/kak-statandroid-razrabotchikom.jpg">
-                <br>
-                <div class="ol-square" style="font-size: 20px; padding-left: 40px; padding-top: 20px;">
-                    Курс рассчитан для тех, кто никогда не был знаком с программированием. Длительность учебной программы – 12 месяцев. На курсе вы освоите языки программирования Java и Kotlin, Material Design, тестирование приложений, а также научитесь работать в команде.
-                    <p></p>
-ГикБрайнс поможет с трудоустройством после успешного окончания обучения.
-                    <br>
-                    <br>
-По окончанию курса вы создадите своё приложение с нуля и опубликуете его в Google Play. После сдачи экзаменов вы получите диплом о профессиональной переподготовке, а также 7 работ в своё портфолио.
-
-                <br>
-                <br>
-                <a class="link" href="https://gb.ru/geek_university/developer/programmer/android"><div class="color_link" style="display: inline; " >GeekBrains</div></a>
-                </div>
-                <br>
-                </div>
-                </div>
-                <hr>
-                <div class="square4-text">
-                    <div class="title-online">
-                        Самообучение
-                        <div class="ol-square" style="font-size: 20px; padding-left: 40px; padding-top: 20px;">
-                            Если вы выбрали самостоятельный путь Android-разработчика, то главное – найти действительно достоверные источники для обучения, а также грамотно составленный план учёбы. Существенным минусом самостоятельного обучения является нехватка практики. Хорошо будет, если вы найдёте ментора, который подскажет вам как нужно делать и что делать не стоит.
-                        </div>
-                    </div>
-            <br>
+        </div>
+    </div>
+   <div id="square3">
+       <div class="square3-title">
+           Зарплата Android-разработчика по Москве и России
+       </div>
+       <hr class="black hr" style="color: #000;">
+       <br>
+       <div class="square3-text">
+            Согласно сайту trud.ru средняя зарплата Андроид-разработчика по Москве на 2019 год следующая:
+        </div>
+       <img class="square3-img" src="https://checkroi.ru/blog/wp-content/uploads/2020/02/Screenshot_1-min-31.jpg" alt="">
+       <hr class="black hr" style="color: #000;">
+       <div class="square3-text">
+            Согласно сайту hh.ru минимальная зарплата Андроид-разработчику предлагается от 80 тыс. руб. Такой специалист должен иметь минимальный годовой опыт работы. От него требуется:
+           <br>
+           <br>
+           <ul type="disc">
+               {{ el.text_skills | safe}}
+           </ul>
+       </div>
+   </div>
+<div id="square4">
+    <div class="title1-square">
+        Как стать разработчиком приложений для Android
+    </div>
+    <div class="title2-square">
+        Существует 3 способа, чтобы выучиться на Андроид-разработчика:
+    </div>
+    <br>
+    <hr class="hr-shelf">
+    <div class="square4-text">
+    <ol class="ol-square">
+        <li style="padding-top: 10px; padding-right: 100px;">
+            <div class="text-univers" style="padding-left: 10px;">
+                <strong>Обучение в ВУЗах.</strong>
+                В высших учебных учреждениях обучаться дорого и долго, а также может быть подача устаревших материалов. Также в России мало институтов, после которых можно сразу пойти работать разработчиком мобильных приложений.
             </div>
-            <hr class="hr-shelf" >
-            <br>
-            <div class="square4-text">
-                <div class="title1-square">
-                    Что должен знать Android developer (hard-skills)
-                </div>
-              <div class="text-online">
-               <div class="ol-square" style="font-size: 20px; padding-left: 40px; padding-top: 20px;">
-                    Чтобы начинающего Андроид-разработчика смогли принять на работу, нужно владеть минимальным набором навыков и знаний. Вот стандартный список того, что нужно знать Android-разработчику – стартер-пак (на основе анализа типовых вакансий):
+
+        </li>
+        <li style="padding-top: 10px; padding-right: 100px;">
+            <div class="text-univers" style="padding-left: 10px;">
+                <strong>Онлайн-курсы.</strong> Это наиболее быстрый и недорогой метод обучения. Через 1 год учёбы вы уже сможете уже найти первую работу и начать зарабатывать хорошие деньги.
+            </div>
+
+        </li>
+        <li style="padding-top: 10px; padding-right: 100px;">
+            <div class="text-univers" style="padding-left: 10px;">
+                <strong>Самообучение.</strong> Чтобы выучиться самостоятельно, потребуется немало мотивации и самодисциплины. На обучение уйдут годы, а с поиском грамотных (хотя и бесплатных) материалов могут возникнуть сложности. Если у вас очень много свободного времени и есть желание стать мобильным разработчиком самому, то обучиться этому вполне реально.
+            </div>
+          </li>
+
+        </ol>
+
+        <div class="title-online">
+            Обучение в ВУЗе
+
+        </div>
+        <div class="text-online">
+            {{ el.learn_uni | safe}}
+        <a class="link" href="https://postupi.online/"><div class="color_link" style="display: inline " >Postupi.online</div></a>
+        </div>
+        <img src="https://professii.su/wp-content/uploads/2022/05/s-chego-nachat-android-razrabotku-min.jpg" style="margin-left: 70px; margin-top: 5px" alt="">
+    </div>
+    <br>
+    <hr>
+    <div class="square4-text">
+
+        <div class="title-online">
+            Онлайн-курсы
+        </div>
+        <div class="text-online">
+            {{ el.learn_web_site | safe}}
+
+                Онлайн-курс от Скиллбокс «Профессия мобильный разработчик»
+            <img class="skillbox-img" style="margin-left: 160px; margin-top: 20px; padding-top: 40px;" src="https://professii.su/wp-content/uploads/2022/05/professiya-mobilnyj-razrabotchik.webp">
+            <div class="ol-square" style="font-size: 20px; padding-left: 40px; padding-top: 20px;">
+                Курс длится 7,5 месяцев, на котором вы с нуля научитесь программировать и создавать приложения для устройств на ОС Андроид и iOS. Что входит в программу курса:
                 <ul>
                     <br>
-                    <li>знание английского языка на уровне чтения технической документации. Кроме этого, знание иностранного языка очень пригодится при поиске ответов в сети Интернет;</li>
-                    <li style="padding-top: 15px;">знание структуры, принципов работы и функций ОС Андроид;l</li>
-                    <li style="padding-top: 15px;";>понимание жизненного цикла приложений;</li>
-                    <li style="padding-top: 15px;">знание синтаксиса Kotlin (или Java);</li>
-                    <li style="padding-top: 15px;">базовые знания MVVM, MVI;</li>
-                    <li style="padding-top: 15px;">понимание объектно-ориентированного программирования (ООП);</li>
-                    <li style="padding-top: 15px;">знание Android Studio;</li>
-                    <li style="padding-top: 15px;">опыт работы с GIT и GitHub для совместной работы над кодом с другими членами команды;</li>
-                    <li style="padding-top: 15px;">опыт проведения тестирования;</li>
-                    <li style="padding-top: 15px;">понимание алгоритмов мобильной разработки: функции, переменные, разделение кода на файлы и др. Эти знания нужны, чтобы прокачать вас как программиста;</li>
+                    <li>Создание нативных приложений;
+                    </li>
+                    <li>Настройка клиент-серверной части;
 
+                    </li>
+                    <li>Проектирование интерфейсов и анимации;
+
+                    </li>
+                    <li>Тестирование приложений;
+
+                    </li><li>GIT;
+
+                    </li><li>SQL;
+
+                    </li><li>Figma и многое другое.
+
+                    </li>
                 </ul>
-                </div>
+                <div class="skillbox-text1">Скиллбокс поможет в трудоустройстве, в ином случае будут возвращены деньги за курс.</div>
+                <br>
+            <a class="link" href="https://skillbox.ru/course/profession-mobdev/"><div class="color_link" style="display: inline; " >Skillbox</div></a>
             </div>
-            </div>
-            <hr class="hr-shelf" >
+        </div>
+    </div>
+
+    <br>
+    <hr>
+    <div class="square4-text">
+
+        <div class="title-online">
+
+
+            Факультет Android-разработки от GeekBrains
+        <br>
+        <img class="skillbox-img" style="margin-left: 160px; margin-top: 50px;" src="https://professii.su/wp-content/uploads/2022/05/kak-statandroid-razrabotchikom.jpg">
+        <br>
+        <div class="ol-square" style="font-size: 20px; padding-left: 40px; padding-top: 20px;">
+            Курс рассчитан для тех, кто никогда не был знаком с программированием. Длительность учебной программы – 12 месяцев. На курсе вы освоите языки программирования Java и Kotlin, Material Design, тестирование приложений, а также научитесь работать в команде.
+            <p></p>
+ГикБрайнс поможет с трудоустройством после успешного окончания обучения.
             <br>
-            <div class="square4-text">
-                <div class="title1-square">
-                    Личные качества (soft-skills)
-                </div>
-              <div class="text-online">
-               <div class="ol-square" style="font-size: 20px; padding-left: 40px; padding-top: 20px;">
-                    Программирование часто сопряжено со стрессами, поскольку необходимо постоянно находить общий язык с заказчиком и другими членами команды, а также спокойно воспринимать любую критику, в том числе и от пользователей готового приложения. В связи с этим Андроид-разработчик должен владеть следующими личными качествами:
+            <br>
+По окончанию курса вы создадите своё приложение с нуля и опубликуете его в Google Play. После сдачи экзаменов вы получите диплом о профессиональной переподготовке, а также 7 работ в своё портфолио.
 
-                <ol>
-
-                    <br>
-                    <li style="padding-top: 15px; padding-left: 10px;">
-                        <div class="text-univers" style="padding-left: 10px;">
-                            Уметь работать с заказчиком и членами команды. На работе придётся много общаться с разными людьми, и чтобы достичь всех рабочих целей, нужно находить общий язык со всеми.</div></li>
-
-
-                    <li style="padding-top: 15px; padding-left: 10px;">
-                        <div class="text-univers" style="padding-left: 10px;">Иметь технический склад ума. Это качество разработчика можно сравнить с игрой в шахматы – нужно учитывать много факторов и думать на несколько шагов вперёд.</div></li>
-
-
-                    <li style="padding-top: 15px; padding-left: 10px">
-                        <div class="text-univers" style="padding-left: 10px;">Высокий уровень работоспособности, усидчивость и максимальная концентрация на работе. Именно эти качества позволят создавать приложения с минимальным количеством багов.</div></li>
-
-
-                    <li style="padding-top: 15px; padding-left: 10px ">
-                        <div class="text-univers" style="padding-left: 10px;">Желание постоянно обучаться. Технологии развиваются постоянно, и что работало месяц назад, сейчас уже может быть неэффективным. Поэтому надо постоянно изучать новые технологии и суметь их встраивать в проект быстрее конкурентов.</div></li>
-                    <li style="padding-top: 15px; padding-left: 10px ">
-                        <div class="text-univers" style="padding-left: 10px;">Уметь искать нужную информацию. Если разработчик что-то не понял, то нужно изучить документацию, почитать ответы в IT-сообществах, прочесть книги. Если ответ не найден, то тогда можно отвлечь более опытных коллег. Хорошее качество разработчика – это уметь задавать вопросы вовремя.
-                        </div></li>
-
-                   </ol>
-                  </div>
+        <br>
+        <br>
+        <a class="link" href="https://gb.ru/geek_university/developer/programmer/android"><div class="color_link" style="display: inline; " >GeekBrains</div></a>
+        </div>
+        <br>
+        </div>
+        </div>
+        <hr>
+        <div class="square4-text">
+            <div class="title-online">
+                Самообучение
+                <div class="ol-square" style="font-size: 20px; padding-left: 40px; padding-top: 20px;">
+                    {{ el.learn_self | safe}}
                 </div>
             </div>
+    <br>
+    </div>
+    <hr class="hr-shelf" >
+    <br>
+    <div class="square4-text">
+        <div class="title1-square">
+            Что должен знать Android developer (hard-skills)
+        </div>
+      <div class="text-online">
+       <div class="ol-square" style="font-size: 20px; padding-left: 40px; padding-top: 20px;">
+            Чтобы начинающего Андроид-разработчика смогли принять на работу, нужно владеть минимальным набором навыков и знаний. Вот стандартный список того, что нужно знать Android-разработчику – стартер-пак (на основе анализа типовых вакансий):
+        <ul>
+            <br>
+            {{ el.text_what_know_for_work | safe}}
 
-            </div>
+        </ul>
+        </div>
+    </div>
+    </div>
+    <hr class="hr-shelf" >
+    <br>
+    <div class="square4-text">
+        <div class="title1-square">
+            Личные качества (soft-skills)
+        </div>
+      <div class="text-online">
+       <div class="ol-square" style="font-size: 20px; padding-left: 40px; padding-top: 20px;">
+            Программирование часто сопряжено со стрессами, поскольку необходимо постоянно находить общий язык с заказчиком и другими членами команды, а также спокойно воспринимать любую критику, в том числе и от пользователей готового приложения. В связи с этим Андроид-разработчик должен владеть следующими личными качествами:
+
+        <ol>
+
+            <br>
+            <li style="padding-top: 15px; padding-left: 10px;">
+                <div class="text-univers" style="padding-left: 10px;">
+                    Уметь работать с заказчиком и членами команды. На работе придётся много общаться с разными людьми, и чтобы достичь всех рабочих целей, нужно находить общий язык со всеми.</div></li>
+
+
+            <li style="padding-top: 15px; padding-left: 10px;">
+                <div class="text-univers" style="padding-left: 10px;">Иметь технический склад ума. Это качество разработчика можно сравнить с игрой в шахматы – нужно учитывать много факторов и думать на несколько шагов вперёд.</div></li>
+
+
+            <li style="padding-top: 15px; padding-left: 10px">
+                <div class="text-univers" style="padding-left: 10px;">Высокий уровень работоспособности, усидчивость и максимальная концентрация на работе. Именно эти качества позволят создавать приложения с минимальным количеством багов.</div></li>
+
+
+            <li style="padding-top: 15px; padding-left: 10px ">
+                <div class="text-univers" style="padding-left: 10px;">Желание постоянно обучаться. Технологии развиваются постоянно, и что работало месяц назад, сейчас уже может быть неэффективным. Поэтому надо постоянно изучать новые технологии и суметь их встраивать в проект быстрее конкурентов.</div></li>
+            <li style="padding-top: 15px; padding-left: 10px ">
+                <div class="text-univers" style="padding-left: 10px;">Уметь искать нужную информацию. Если разработчик что-то не понял, то нужно изучить документацию, почитать ответы в IT-сообществах, прочесть книги. Если ответ не найден, то тогда можно отвлечь более опытных коллег. Хорошее качество разработчика – это уметь задавать вопросы вовремя.
+                </div></li>
+
+           </ol>
+          </div>
+        </div>
+    </div>
+
+    </div>
+        {% endfor %}
         {%endblock%}
 
-        <footer id="square-footer" >
-                <div class="copyright">
-                    © Чекмарев Артем Алксеевич, РИ-210915, 2023 •
-                </div>
 
-
-    </footer>
 
 
 

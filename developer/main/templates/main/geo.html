@@ -10,33 +10,13 @@
 {% block title %}География {%endblock%}
 
 
-
-
-        {%block content%}
-
-        <div id="square1" style="height: auto; margin-left: 270px; margin-top: -10px;">
-
-
-
-    {% for graf in grafics %}
-     <img src=" {{ graf.grafic.url }}" width="1100px;", height="1300px" style="display: block; padding:5px  30px; ">
-
-
-    {% endfor %}
-
-
+{%block content%}
+    {% for el in grafic2 %}
+        <div id="square4" style="height: auto; margin-top: -10px;">
+            <img src="{{ el.grafic_geo.url }}" width="1100px;", height="1300px" style="display: block; padding:5px  30px; ">
         </div>
+     {% endfor %}
+{%endblock%}
 
-
-
-    {%endblock%}
-
-        <footer id="square-footer" >
-                <div class="copyright">
-                    © Чекмарев Артем Алксеевич, РИ-210915, 2023 •
-                </div>
-
-
-    </footer>
 
 

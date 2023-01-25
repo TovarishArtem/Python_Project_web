@@ -11,23 +11,20 @@
 
 
 {%block content%}
+    <form  method="POST" >
 
-            <form  method="POST" >
-
-           {% for field in form %}
-            {% csrf_token %}
-            <div style="font-size: 30px; ">
-                <div id="squareFORM">
-                    <div class="title_form">
-                        {{title}} {{form.digit}}
-                         <button style="position: center" type="submit">Отправить</button>
-                    </div>
-
+   {% for field in form %}
+        {% csrf_token %}
+        <div style="font-size: 30px; ">
+            <div id="squareFORM">
+                <div class="title_form">
+                    {{title}} {{form.digit}}
+                     <button style="position: center" type="submit">Отправить</button>
                 </div>
-
-            {% endfor %}
             </div>
-         </form>
+         </div>
+    {% endfor %}
+    </form>
 {%endblock%}
 
 

@@ -10,16 +10,19 @@
 {% block title %}Нахождение вакансии {%endblock%}
 
 {% block content %}
+     {% for el in block_error %}
             <div style="font-size: 30px; ">
                 <div id="squareFORM">
                     <div class="title_form_error" style="margin-left: 230px; font-size: 40px">
-                        Нет вакансий!
+                        {{el.title_form_error}}
                     </div>
                     <div class="text_form" style="margin-left: 200px;">
-                        (поробуйте выбрать другую дату)
+                      {{el.text_form_error}}
                     </div>
                  </div>
             </div>
-{%endblock%}
+    {% endfor %}
+{% endblock %}
+
 
 

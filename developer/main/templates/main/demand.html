@@ -10,22 +10,13 @@
 {% block title %}Востребованность {%endblock%}
 
 
-        {%block content%}
-
-        <div id="square1" style="height: auto; margin-left: 270px; margin-top: -10px;">
-
-
-
-    {% for graf in grafics %}
-     <img src=" {{ graf.grafic.url }}" width="1100px;", height="1300px" style="display: block; padding:5px  20px; ">
-
-
-{% endfor %}
-
-
+{%block content%}
+    {% for el in grafic1 %}
+        <div id="square4" style="height: auto; margin-top: -10px;">
+            <img src=" {{ el.grafic_demand.url }}" width="1100px;", height="1300px" style="display: block; padding:5px  20px; ">
+    {% endfor %}
         </div>
 {%endblock%}
-
 
 </body>
 </html>
