@@ -1,0 +1,16 @@
+{%extends 'main/base.html'%}
+{% load static %}
+
+{%block status1%}nav-link active{%endblock%}
+{%block status2%}nav-link_text-white{%endblock%}
+{%block status3%}nav-link_text-white{%endblock%}
+{%block status4%}nav-link_text-white{%endblock%}
+{%block status5%}nav-link_text-white{%endblock%}
+
+{% block title %}Регистрация {%endblock%}
+
+
+{% block content %}
+    <h1>Welcome {{ new_user.first_name }}!</h1>
+    <p>Your account has been successfully created. Now you can log in.</p>
+{% endblock %}

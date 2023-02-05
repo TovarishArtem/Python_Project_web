@@ -704,6 +704,10 @@ h1, h2, h3, h4, h5, h6{
 .link:hover{
     background-color: #0D6EFD
 }
+.fs-4:hover{
+    color: #00FFFF;
+    z-index: 100;
+}
 
 
 

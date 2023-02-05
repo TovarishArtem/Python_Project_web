@@ -1,6 +1,14 @@
+from django.conf import settings
+from django.contrib.auth.models import User
+
 from django.db import models
 
 # Create your models here.
+from django.db import models
+from django.utils import timezone
+
+from django.db import models
+from django.conf import settings
 from django.db import models
 
 
@@ -42,8 +50,27 @@ class Main_to_Geo(models.Model):
 
 class Last_vacancies(models.Model):
     title_form_error = models.TextField('Вывод ошибки', max_length=50)
-    text_form_error = models.TextField('Что делает Android-разработчик?', max_length=50)
+    text_form_error = models.TextField('Действие устранение ошибки', max_length=50)
     bd = models.Field
 
     def __str__(self):
         return self.title_form_error
+
+
+class Pictures(models.Model):
+    name = models.CharField('Название', null=True, max_length=100)
+    pic = models.ImageField( blank=True,  upload_to='images/')
+    user = models.ForeignKey(User,
+                             on_delete= models.PROTECT,
+                             null=True,
+                             )
+
+class PicturesSend(models.Model):
+    name = models.CharField('Название', null=True, max_length=100)
+    pic = models.ImageField( blank=True,  upload_to='images/')
+    user_set = models.IntegerField(
+                             null=True,
+                             )
+    user_get = models.IntegerField(
+        null=True,
+    )
