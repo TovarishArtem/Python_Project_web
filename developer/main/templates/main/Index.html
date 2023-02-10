@@ -13,16 +13,16 @@
 {%block content%}
 {% for el in block1 %}
 <div class="container">
-    <div id="square">
+    <div id="square" data-aos="flip-left">
         <div class="square-img">
             <img src="https://img-blog.csdnimg.cn/20190411234502517.png?imageView2/5/w/120/h/120" alt="">
         </div>
-        <div class="square-text">
+        <div data-aos="fade-right" class="square-text">
             {{ el.text_definition | safe}}
         </div>
     </div>
 
-    <div id="square1">
+    <div id="square1" data-aos="fade-down">
         <div class="square1-title">
             Что делает Android-разработчик?
         </div>
@@ -33,13 +33,13 @@
 </div>
     <br>
     <div class="contianer_square2_img">
-        <div class="items_square2_img">
-            <div class="img_frame_square2">
+        <div class="items_square2_img" >
+            <div class="img_frame_square2" data-aos="zoom-in-up">
                 <img src="https://professii-online.ru/wp-content/uploads/obuchenie-professii-android-developer.jpg" style="border-radius: 5px; border: 5px #cfc solid; box-shadow: 0 0 10px #fff", width="500px"; height="300px";>
             </div>
         </div>
         <div class="items_square2_img">
-            <div class="square2" style="border-radius: 5px; border: 5px #cfc solid; box-shadow: 0 0 10px #fff">
+            <div class="square2" data-aos="zoom-in-up" style="border-radius: 5px; border: 5px #cfc solid; box-shadow: 0 0 10px #fff">
                 <div class="title-square2">Инструменты Android-разработчика
                 </div>
                 <div class="text-square2">
@@ -55,7 +55,7 @@
     </div>
     <div class="container_oval">
         <div class="items_oval">
-            <div id="oval_plus">
+            <div id="oval_plus" data-aos="fade-right">
                 <div class="text_plus">
                     <div class="title_text">
                         <div class="items_title_text">
@@ -74,7 +74,7 @@
             </div>
         </div>
         <div class="items_oval">
-            <div id="oval_plus">
+            <div id="oval_plus" data-aos="fade-left">
                 <div class="text_minus">
                     <div class="title_text">
                         <div class="items_title_text">
@@ -95,7 +95,9 @@
             </div>
         </div>
     </div>
-   <div id="square3">
+   <div id="square3" data-aos="fade-left"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine">
        <div class="square3-title">
            Зарплата Android-разработчика по Москве и России
        </div>
@@ -115,7 +117,9 @@
            </ul>
        </div>
    </div>
-<div id="square4">
+<div id="square4" data-aos="fade-right"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine">
     <div class="title1-square">
         Как стать разработчиком приложений для Android
     </div>

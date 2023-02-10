@@ -225,7 +225,7 @@ h1, h2, h3, h4, h5, h6{
 }
 .custom-file-input::before {
     font-size: 25px;
-  content: 'Файл не выбран';
+  content: 'Выбрать файл';
   color: black;
   display: inline-block;
   background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
@@ -241,6 +241,7 @@ h1, h2, h3, h4, h5, h6{
   font-weight: 700;
 
 }
+
 .custom-file-input:hover::before {
   border-color: black;
 }

@@ -22,9 +22,11 @@ def index(request):
 
 dect = {}
 
+
 class RegisterUser(CreateView):
     form_class = RegisterUserForm1
     template_name = 'main/register.html'
+
     success_url = reverse_lazy('home')
 # def register(request):
 #     block1 = Main_to_Geo.objects.all()
@@ -51,26 +53,34 @@ class LogoutUser(LogoutView):
     next_page = reverse_lazy('home')
 
 
-# def login(request):
-#     block1 = Main_to_Geo.objects.all()
-#     if request.method == 'POST':
-#         user_form = AuthenticationForm(request.POST)
-#         if user_form.is_valid():
-#             new_user = user_form.save(commit=False)
-#             new_user.set_password(user_form.cleaned_data['password1'])
-#             new_user.save()
-#             dect = new_user
-#             print('fewfwef')
-#
-#             return render(request, 'main/Index.html', {'block1': block1})
-#     else:
-#         user_form = AuthenticationForm()
-#     return render(request, 'main/login.html', {'user_form': user_form})
+def profile(request):
 
+    if request.method == 'POST' and 'form3' in request.POST:
+        try:
+            prof = Profile(
+                user=request.user,
+                surname=request.POST['surname'],
+                name=request.POST['name'],
 
+            )
+            prof.save()
+        except:
+            profi = Profile.objects.get(user_id=request.user.id)
+            profi.name=request.POST['name']
+            profi.surname = request.POST['surname']
+            profi.save()
+        profiles = Profile.objects.all()
+        return render(request, 'main/register_done.html', {'profiles': profiles})
+    else:
+
+        profiles = Profile.objects.all()
+        return render(request, 'main/register_done.html', {'profiles': profiles})
 
 def error(request):
     return render(request, 'main/form_erorr.html')
+def no_login(request):
+    return render(request, 'main/no_login.html')
+
 
 def skills(request):
     if request.method == 'POST' and 'form1' in request.POST:
@@ -83,23 +93,69 @@ def skills(request):
 
         pect.save()
     if request.method == 'POST' and 'form2' in request.POST:
-        pictures = Pictures.objects.all()
-        pictures_send = PicturesSend(
-            pic=request.FILES['picture_send'],
-            user_get=int(request.POST['code']),
-            user_set=request.user.id,
-            name=(request.POST['name_send'])
-        )
-        print(request.user)
-        pictures_send.save()
-        pictures_send = PicturesSend.objects.all()
-        return render(request, 'main/skills.html', { 'pictures': pictures, 'pictures_s': pictures_send})
-    else:
 
+        pictures = Pictures.objects.all()
+        if (int(request.POST['code'])) != request.user.id:
+            pictures_send = PicturesSend(
+                pic=request.FILES['picture_send'],
+                user_get=int(request.POST['code']),
+                user_set=request.user.id,
+                name=(request.POST['name_send'])
+            )
+            user_to = int(request.POST['code'])  # 1
+            user_from = request.user.id  # 33
+            friends = Friend.objects.all()
+            print(friends)
+            if len(friends) > 0:
+                try:
+                    friends = Friend.objects.get(user_from=user_from, user_to=user_to)
+                except:
+                    friend = Friend(
+                        user_from=user_from,
+                        user_to=user_to
+                    )
+                    friend.save()
+            else:
+                friend = Friend(
+                    user_from=request.user.id,
+                    user_to=int(request.POST['code'])
+                )
+                friend.save()
+            pictures_send.save()
+            pictures_send = PicturesSend.objects.all()
+
+            return HttpResponseRedirect('/skills',  'main/skills.html', {'pictures': pictures, 'pictures_s': pictures_send})
+        else:
+            pictures_send = PicturesSend.objects.all()
+            return render(request, 'main/skills.html', {'pictures': pictures, 'pictures_s': pictures_send})
+
+
+    else:
         pictures = Pictures.objects.all()
         pictures_send = PicturesSend.objects.all()
         return render(request, 'main/skills.html', {'pictures': pictures, 'pictures_s': pictures_send})
 
+def skills_delete(request, id):
+
+    if id:
+
+        pic = PicturesSend.objects.get(pk=id)
+        pic.delete()
+        return redirect('/skills')
+def skills_delete1(request, id):
+
+    if id:
+
+        pic = Pictures.objects.get(pk=id)
+        pic.delete()
+        return redirect('/skills')
+def skills_delete2(request, id):
+
+    if id:
+
+        pic = PicturesSend.objects.get(pk=id)
+        pic.delete()
+        return redirect('/skills')
 
 class FormCreate(View):
 

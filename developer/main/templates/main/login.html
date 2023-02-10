@@ -15,16 +15,21 @@
      <div style="text-align: center; font-size: 20px; font-family: 'Prosto One', cursive">
         <div style="text-align: center; padding: 10px; font-size: 35px; font-weight: bold; font-family: 'Prosto One', cursive">Авторизация</div>
          <form  method="POST">
-             {% for f in  form %}
+
              {% csrf_token %}
-             <div style="font-size: 20px; font-family: 'Prosto One', cursive">
-                  {{f.label}}
-                 <br>
-                     {{f}}
-             </div>
-
-
-             {% endfor %}
+             <table>
+                 <tbody>
+                 {% for f in form %}
+                 <tr>
+                     {{f.errors}}
+                     <td colspan="2">{{f.label}}</td>
+                     <td>
+                         <div style="padding: 10px 10px">{{f}}</div>
+                     </td>
+                 </tr>
+                 {% endfor %}
+                 </tbody>
+             </table>
 
         <input style="margin-top: 20px; font-size: 30px" type="submit" value="Войти">
          </form>

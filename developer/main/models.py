@@ -74,3 +74,15 @@ class PicturesSend(models.Model):
     user_get = models.IntegerField(
         null=True,
     )
+
+class Profile(models.Model):
+    name = models.CharField('Имя', null=True, max_length=100)
+    surname = models.CharField('Фамилия', null=True, max_length=100)
+    user = models.OneToOneField(User,
+                             unique=True,
+                             on_delete= models.PROTECT,
+                             null=True,
+                             )
+class Friend(models.Model):
+    user_to = models.IntegerField(null=True,)
+    user_from = models.IntegerField(null=True,)

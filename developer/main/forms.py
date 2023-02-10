@@ -41,18 +41,22 @@ class AddPostForm(forms.Form):
     digit = forms.ChoiceField(choices=GEEKS_CHOICES, label="Выберите число декабря" )
 
 class RegisterUserForm1(UserCreationForm):
-    username = forms.CharField(label='Логин', required=False, widget=forms.TextInput(attrs={'class': 'form-input'}))
-    password1 = forms.CharField(label='Пароль', required=False, widget=forms.PasswordInput(attrs={'class': 'form-input'}))
-    password2 = forms.CharField(label='Повтор пароля',  required=False, widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+    username = forms.CharField(label='Логин:', widget=forms.TextInput(attrs={'class': 'form-input'}))
+    password1 = forms.CharField(label='Пароль:', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+    password2 = forms.CharField(label='Повтор пароля:',  widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+
+
 
     class Meta:
         model = User
         fields = ('username', 'password1', 'password2')
 
+
+
     def clean_password2(self):
         cd = self.cleaned_data
         if cd['password1'] != cd['password2']:
-            raise forms.ValidationError('Passwords don\'t match.')
+            raise forms.ValidationError('Пароли не совпадают.')
         return cd['password2']
 
 class Skills(forms.Form):

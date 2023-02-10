@@ -17,6 +17,13 @@ urlpatterns = [
     path('login', LoginUser.as_view(), name='login'),
     path('logout', LogoutUser.as_view(), name='logout'),
     path('skills', views.skills, name='skills'),
+    path('skills_delete/<id>', views.skills_delete, name='skills_delete'),
+    path('skills_delete1/<id>', views.skills_delete1, name='skills_delete1'),
+    path('skills_delete2/<id>', views.skills_delete2, name='skills_delete2'),
+    path('#main', views.profile, name='profile'),
+    path('no_login', views.no_login, name='no_login'),
+    # path('#main1', views.friends, name='friends'),
+
 
 ]
 if settings.DEBUG:

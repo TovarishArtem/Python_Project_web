@@ -1,16 +1,56 @@
 {%extends 'main/base.html'%}
 {% load static %}
 
-{%block status1%}nav-link active{%endblock%}
+{%block status1%}nav-link_text-white{%endblock%}
 {%block status2%}nav-link_text-white{%endblock%}
 {%block status3%}nav-link_text-white{%endblock%}
-{%block status4%}nav-link_text-white{%endblock%}
+{%block status4%} nav-link active {%endblock%}
 {%block status5%}nav-link_text-white{%endblock%}
 
-{% block title %}Регистрация {%endblock%}
+{% block title %}Настройки профиля {%endblock%}
 
 
-{% block content %}
-    <h1>Welcome {{ new_user.first_name }}!</h1>
-    <p>Your account has been successfully created. Now you can log in.</p>
-{% endblock %}
+{%block content%}
+ <div id="square4" data-aos="zoom-in"style="width: 500px; margin-left: 500px; height: 360px">
+            <div style="text-align: center; font-size: 30px; font-family: 'Prosto One', cursive; padding: 20px 0;">
+                {% if request.user.is_authenticated %}
+                <div style="text-align: center; padding: 5px; font-size: 35px; font-weight: bold; font-family: 'Prosto One', cursive">Настройки профиля</div>
+                <form style="margin-top: 20px;" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                <table>
+                 <tbody>
+
+                 <tr>
+
+                     <td  style= "padding-left: 120px"colspan="2">Имя:</td>
+                     <td>
+                         <input style="width: 200px" type="text" name="name">
+                     </td>
+                 </tr>
+                 <tr >
+
+                     <td style= "padding-left: 50px" colspan="2">Фамилия:</td>
+                     <td>
+                          <input style= " margin: 40px 10px; width: 200px" type="text" name="surname">
+                     </td>
+                 </tr>
+                 </tbody>
+             </table>
+                </form>
+
+
+                {% else %}
+                Войдите в аккаунт
+
+
+                {% endif %}
+            </div>
+        </div>
+
+
+
+    {%endblock%}
+
+    </body>
+    </html>

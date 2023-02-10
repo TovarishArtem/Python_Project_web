@@ -1,8 +1,9 @@
 {% load static %}
+{% load main_tags %}
 <!doctype html>
 <html lang="ru">
 <head>
-
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'main/st.css' %}">
     <link rel="stylesheet" href="{% static 'main/style_dem.css' %}">
 
@@ -19,6 +20,53 @@
 <main>
 </main>
 <body>
+<div class="popup-fade" id="main">
+    <a href="#">
+      <div id="okno" >
+          <a class="popup-close" href="#">x</a>
+              <div style="text-align: center; font-size: 35px; font-weight: bold; font-family: 'Prosto One', cursive">Профиль</div>
+                <div style="font-size: 20px; font-family: 'Prosto One', cursive; margin-right: auto; margin-top: 30px; width: 300px;">
+                    {% get_profiles as profiles %}
+              {% for prof in profiles %}
+                     {% if prof.user.id == request.user.id %}
+                            Имя : {{prof.name}} <br>
+                             Фамилия : {{prof.surname}}
+                    {% endif %}
+              {%endfor%} <br><br>
+                </div>
+          <div style="font-size: 20px; font-family: 'Prosto One', cursive; text-align: center; margin-top: 50px">
+            ВАШ КОД:  {{request.user.id}}
+          </div>
+
+        </div>
+    </a>
+
+</div>
+<div class="popup-fade" id="main1">
+    <a href="#">
+      <div id="okno" style="overflow: auto; margin-left: 300px">
+          <a class="popup-close" href="#">x</a>
+              <div style="text-align: center;  font-size: 35px; font-weight: bold; font-family: 'Prosto One', cursive">Друзья</div>
+          <hr>
+                <div style="font-size: 20px; font-family: 'Prosto One', cursive">
+                    {% get_friends as friends %}
+              {% for fri in friends %}
+                    {% for prof in profiles %}
+                        {% if fri.user_to == request.user.id and fri.user_from == prof.user.id %}
+                            Имя : {{prof.name}} <br>
+                             Фамилия : {{prof.surname}}
+               <br><br>
+             КОД ДРУГА {{prof.user.id}}
+                    <hr>
+                    {% endif %}
+                    {%endfor%}
+                    {%endfor%}
+                </div>
+     </div>
+    </a>
+    >
+</div>
+
     <div class="main-text">
 
         <div class="px-3 py-2 bg-dark text-white" >
@@ -30,7 +78,14 @@
                   </div>
                 <span class="fs-4" style=" padding-left: 20px; color: aliceblue; font-family: 'Rowdies', cursive;">DEVELOPERS FINDER</span>
                   {% if request.user.is_authenticated %}
-                    <a class="fs-4"  style="  text-decoration: none; padding-left:400px; color: aliceblue; font-family: 'Rowdies', cursive;">{{request.user}} {{request.user.id}}  | </a>
+
+                    <a   onMouseOver="this.style.color='#00FFFF'" onMouseOut="this.style.color='#FFF'" href="{% url 'profile' %}" style=" font-size: 23px;  text-decoration: none; padding-left:4px; color: aliceblue; font-family: 'Rowdies', cursive;">Профиль</a>
+                    <a  onMouseOver="this.style.color='#00FFFF'" onMouseOut="this.style.color='#FFF'" href="#main1" style=" font-size: 23px; margin-left: -200px;  text-decoration: none;  color: aliceblue; font-family: 'Rowdies', cursive;">Друзья</a>
+                  <a  onMouseOver="this.style.color='#00FFFF'" onMouseOut="this.style.color='#FFF'"href="#main" class="fs-4"  style="  text-decoration: none; margin-left:400px; color: aliceblue; font-family: 'Rowdies', cursive;">
+
+                        {{request.user}} {{request.user.id}}  | </a>
+
+
                   <a  onMouseOver="this.style.color='#00FFFF'" onMouseOut="this.style.color='#FFF'" href="{% url 'logout' %}" style=" font-size: 23px;  text-decoration: none; padding-left:4px; color: aliceblue; font-family: 'Rowdies', cursive;">Выйти</a>
                   {% else %}
                   <a onMouseOver="this.style.color='#00FFFF'" onMouseOut="this.style.color='#FFF'" class="fs-4" href="{% url 'register' %}" style="  text-decoration: none; font-size: 20px; padding-left:400px; color: aliceblue; font-family: 'Rowdies', cursive;"> Регистрация | </a>
@@ -85,6 +140,7 @@
               География
             </a>
           </li>
+
           <li class="nav-item">
             <a href="{% url 'skills' %}" class="{%block status4%}{%endblock%}">
               <svg class="bi pe-none me-2" width="16" height="150"><use xlink:href="#table"></use></svg>
@@ -102,5 +158,9 @@
 
     </div>
 </div>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 </body>
 </html>

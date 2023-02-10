@@ -16,7 +16,7 @@
    {% for field in form %}
         {% csrf_token %}
         <div style="font-size: 30px; ">
-            <div id="squareFORM">
+            <div id="squareFORM" data-aos="flip-up">
                 <div class="title_form">
                     {{title}} {{form.digit}}
                      <button style="position: center" type="submit">Отправить</button>
