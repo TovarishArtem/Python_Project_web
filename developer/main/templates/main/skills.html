@@ -13,163 +13,170 @@
 
 {%block content%}
 {% if request.user.is_authenticated %}
-    <div class="container_skill" style="
+<div class="container_skill" style="
     display: flex; justify-content: space-between;">
-        <div class="skill_items">
-            <div id="square4" data-aos="fade-right" style="width: 500px; margin-left: 265px; height: 250px">
-                <div style="text-align: center; font-size: 25px; font-family: 'Prosto One', cursive; padding: 30px 0;">
-                    {% if request.user.is_authenticated %}
-                    <form method="POST" enctype="multipart/form-data">
-                        {% csrf_token %}
+    <div class="skill_items">
+        <div id="square4_skills" data-aos="fade-right">
+            <div class='skill_text'>
+                {% if request.user.is_authenticated %}
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
 
-                        Название фото <input style="width: 200px" type="text" name="name">
-                        <input style="padding: 20px 50px;" type="file" name="picture" class="custom-file-input">
-                        <br>
-                        <input type="submit" name="form1" value="Создать">
+                    Название фото <input class="input_name_skill" type="text" name="name">
+                    <input type="file" name="picture" class="custom-file-input"><br>
+                    <br>
+                    <input class="button_create" type="submit" name="form1" value="Создать">
 
-                    </form>
+                </form>
 
-                    {% endif %}
-                </div>
-            </div>
-            <div id="square4" data-aos="fade-right" style=" margin-left: 265px;width: 500px; height: 330px; margin-top: 40px">
-                <div style="text-align: center; font-size: 25px; font-family: 'Prosto One', cursive; padding: 30px 0;">
-                    {% if request.user.is_authenticated %}
-                    <form method="POST" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        <table>
-                            <tbody>
-                              <tr>
-                                <td colspan="2"  style="margin-left: -200%;">Название фото:</td>
-                                <td>
-                                  <input style="width: 200px; margin-right: 100%; margin-top: 10px;" type="text" name="name_send">
-                                </td>
-                              </tr>
-                              <tr>
-                                <td colspan="2">Код друга: </td>
-                                <td>
-                                  <input style="width: 100px; margin-right: 100%;  margin-top: 10px;" type="text" name="code">
-                                </td>
-                              </tr>
-                              <tr>
-                                    <td> </td>
-                                <td colspan="2">
-                                   <input  style=" margin-top: 20px;" type="file" name="picture_send" class="custom-file-input">
-                                </td>
-                              </tr>
-                              <tr>
-                                  <td> </td>
-                                <td colspan="2">
-                                  <input style=" margin-top: 40px; margin-right: 27%;" name="form2" type="submit" value="Отправить">
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-
-                    </form>
-
-
-                    {% endif %}
-                </div>
+                {% endif %}
             </div>
         </div>
+        <div id="square4_skills1" data-aos="fade-right">
+            <div class='skill_text'>
+                {% if request.user.is_authenticated %}
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <table class="table_skills">
+                        <tbody>
+                        <tr>
+                            <td colspan="1" class="name_foto">Название фото:</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">
+                                <input class="name_foto" name="name_send">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name_foto" colspan="1">Код друга:</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input class="code_foto" style="width: 100px; margin-right: 100%;  margin-top: 10px;"
+                                       type="text" name="code">
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <input style=" margin-top: 20px;" type="file" name="picture_send" class="custom-file-input">
 
 
-        <div class="skill_items">
-            <div id="square4" data-aos="fade-left" style="width: 400px; margin-right: 50px;  margin-top: 0;">
-                <div style="text-align: center; font-size: 30px; font-family: 'Prosto One', cursive; padding: 10px 0;">
-                    <strong>Список фото</strong>
-                    <hr>
+                    <input class="button_create" style=" margin-top: 20px;" name="form2" type="submit"
+                           value="Отправить">
 
 
-                    {% for f in pictures %}
-                    {% if request.user.id == f.user_id  %}
-                     <a class="link" href="{% url 'skills_delete1' f.id %}" style="color: white; font-size: 10px; margin-left: 300px "   type="submit" value="Delete">X</a><br>
-                    <a style="color: black" href="{{f.pic.url}}"> {{f.name}}</a> <br>
-                    <hr>
+                </form>
 
-                    {% endif %}
-                    {% endfor %}
 
-                </div>
+                {% endif %}
             </div>
-            <div id="square4" data-aos="fade-left" style="width: 400px; margin-left: 250px;  margin-top: 10px;">
-                <div style="text-align: center; font-size: 30px; font-family: 'Prosto One', cursive; padding: 30px 0;">
-                    <strong>Список полученных фото</strong>
-                    <hr>
-                    {% get_profiles as profiles %}
-                    {% for fe in pictures_s %}
-                        {% for prof in profiles %}
-                            {% if request.user.id == fe.user_get and fe.user_set == prof.user.id %}
-                             <a class="link" href="{% url 'skills_delete' fe.id %}" style="color: white; font-size: 10px; margin-left: 300px "   type="submit" value="Delete">X</a>
-                                <table>
-                                    <tbody>
-                                         <tr>
-                                              <td style="padding-left: 30px; text-align: left" colspan="1"> От: {{prof.surname}} {{prof.name}}</td>
-                                         </tr>
-                                         <tr>
-                                             <td  style="padding-left: 30px" colspan="1">
-                                               Файл: <a style="color: black" href="{{fe.pic.url}}"> {{fe.name}}</a> <br>
-                                           </td>
-
-                                         </tr>
-                                    </tbody>
-                                </table>
-
-                                <hr>
-                            {% endif %}
-                    {% endfor %}
-                    {% endfor %}
+        </div>
+    </div>
 
 
-                </div>
+    <div class="skill_items">
+        <div id="square4_skills_list" data-aos="fade-left">
+            <div class="skill_text">
+                <strong>Список фото</strong>
+                <hr>
+
+
+                {% for f in pictures %}
+                {% if request.user.id == f.user_id %}
+                <a class="link-skill" href="{% url 'skills_delete1' f.id %} " style="color: white" type="submit"
+                   value="Delete">X</a><br>
+                <a style="color: black" href="{{f.pic.url}}"> {{f.name}}</a> <br>
+                <hr>
+
+                {% endif %}
+                {% endfor %}
+
             </div>
-             <div id="square4" data-aos="fade-left" style=" width: 400px; margin-left: 250px;  margin-top: 10px;">
-                    <div style="text-align: center; font-size: 30px; font-family: 'Prosto One', cursive; padding: 30px 0;">
-                        <strong>Список отправленных фото</strong>
-                        <hr>
+        </div>
+        <div id="square4_skills_list" data-aos="fade-left" style="margin-top: 20px">
+            <div class="skill_text"
+            ">
+            <strong>Список полученных фото</strong>
+            <hr>
+            {% get_profiles as profiles %}
+            {% for fe in pictures_s %}
+            {% for prof in profiles %}
+            {% if request.user.id == fe.user_get and fe.user_set == prof.user.id %}
+            <a class="link-skill" href="{% url 'skills_delete' fe.id %}"
+               style="color: white; font-size: 10px; margin-left: 300px " type="submit" value="Delete">X</a>
+            <table>
+                <tbody>
+                <tr>
+                    <td style="padding-left: 30px; text-align: left" colspan="1"> От: {{prof.surname}} {{prof.name}}
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-left: 30px" colspan="1">
+                        Файл: <a style="color: black" href="{{fe.pic.url}}"> {{fe.name}}</a> <br>
+                    </td>
 
-                        {% for fe in pictures_s %}
-                            {% for prof in profiles %}
-                            {% if request.user.id == fe.user_set and fe.user_get == prof.user.id %}
-                            <a class="link" href="{% url 'skills_delete2' fe.id %}" style="color: white; font-size: 10px; margin-left: 300px "   type="submit" value="Delete">X</a><br>
-                         <table>
-                                    <tbody>
-                                         <tr>
-                                              <td style="padding-left: 30px; text-align: left" colspan="1"> Кому: {{prof.surname}} {{prof.name}}</td>
-                                         </tr>
-                                         <tr>
-                                             <td  style="padding-left: 30px" colspan="1">
-                                               Файл:  <a style="color: black" href="{{fe.pic.url}}"> {{fe.name}}</a> <br>
-                                           </td>
+                </tr>
+                </tbody>
+            </table>
 
-                                         </tr>
-                                    </tbody>
-                                </table>
-                                <hr>
-
-                        {% endif %}
-                        {% endfor %}
-                        {% endfor %}
-                    </div>
-                </div>
+            <hr>
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
 
 
         </div>
-        </div>
+    </div>
+    <div id="square4_skills_list" data-aos="fade-left" style=" margin-top: 20px;">
+        <div class="skill_text">
+            <strong>Список отправленных фото</strong>
+            <hr>
 
+            {% for fe in pictures_s %}
+            {% for prof in profiles %}
+            {% if request.user.id == fe.user_set and fe.user_get == prof.user.id %}
+            <a class="link-skill" href="{% url 'skills_delete2' fe.id %}" style="color: white;" type="submit"
+               value="Delete">X</a><br>
+            <table>
+                <tbody>
+                <tr>
+                    <td style="padding-left: 30px; text-align: left" colspan="1"> Кому: {{prof.surname}} {{prof.name}}
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-left: 30px" colspan="1">
+                        Файл: <a style="color: black" href="{{fe.pic.url}}"> {{fe.name}}</a> <br>
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+            <hr>
+
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+
+
+</div>
+</div>
 
 
 {% else %}
 <div id="square4" data-aos="flip-up" style="width: 500px; margin-left: 500px; height:auto; padding: 10px">
-     <div style="text-align: center; font-size: 20px; font-family: 'Prosto One', cursive">
-        <div style="text-align: center; padding: 10px; font-size: 35px; font-weight: bold; font-family: 'Prosto One', cursive">Ввойдите в аккаунт</div>
+    <div style="text-align: center; font-size: 20px; font-family: 'Prosto One', cursive">
+        <div style="text-align: center; padding: 10px; font-size: 35px; font-weight: bold; font-family: 'Prosto One', cursive">
+            Ввойдите в аккаунт
+        </div>
 
-         </form>
-     </div>
- </div>
+        </form>
+    </div>
+</div>
 {%endif %}
-    {%endblock%}
+{%endblock%}
 
-    </body>
-    </html>
+</body>
+</html>

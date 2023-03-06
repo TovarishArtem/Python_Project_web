@@ -27,7 +27,7 @@ class RegisterUser(CreateView):
     form_class = RegisterUserForm1
     template_name = 'main/register.html'
 
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('login')
 # def register(request):
 #     block1 = Main_to_Geo.objects.all()
 #     if request.method == 'POST':

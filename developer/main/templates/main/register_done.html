@@ -11,32 +11,34 @@
 
 
 {%block content%}
- <div id="square4" data-aos="zoom-in"style="width: 500px; margin-left: 500px; height: 360px">
-            <div style="text-align: center; font-size: 30px; font-family: 'Prosto One', cursive; padding: 20px 0;">
+ <div id="square4-profile">
+            <div class="text-profile">
                 {% if request.user.is_authenticated %}
-                <div style="text-align: center; padding: 5px; font-size: 35px; font-weight: bold; font-family: 'Prosto One', cursive">Настройки профиля</div>
+                <div class="settings">Настройки профиля</div>
                 <form style="margin-top: 20px;" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
 
                 <table>
                  <tbody>
 
-                 <tr>
+                 <tr class="settings-profile">
 
                      <td  style= "padding-left: 120px"colspan="2">Имя:</td>
                      <td>
                          <input style="width: 200px" type="text" name="name">
                      </td>
                  </tr>
-                 <tr >
+                 <tr class="settings-profile" >
 
                      <td style= "padding-left: 50px" colspan="2">Фамилия:</td>
                      <td>
                           <input style= " margin: 40px 10px; width: 200px" type="text" name="surname">
                      </td>
                  </tr>
+
                  </tbody>
              </table>
+                    <input class="save" type="submit" name="form3" value="Сохранить">
                 </form>
 
 
